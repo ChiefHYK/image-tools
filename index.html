@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片工具 - 专业的在线图片处理工具</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部标题区域 -->
+        <header class="header">
+            <h1>图片工具</h1>
+            <p class="subtitle">专业的在线图片处理工具</p>
+        </header>
+
+        <!-- 上传区域 -->
+        <div class="upload-area" id="uploadArea">
+            <input type="file" id="fileInput" accept="image/png, image/jpeg" hidden>
+            <div class="upload-hint">
+                <svg class="upload-icon" viewBox="0 0 24 24">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+                <p>点击或拖放图片到这里</p>
+                <p class="upload-hint-sub">支持 PNG、JPG 格式</p>
+            </div>
+        </div>
+
+        <!-- 图片处理区域 -->
+        <div class="image-processing" id="imageProcessing" style="display: none;">
+            <!-- 原图预览 -->
+            <div class="preview-container">
+                <div class="preview-box">
+                    <h3>原图</h3>
+                    <div class="image-preview">
+                        <img id="originalPreview" alt="原图预览">
+                    </div>
+                    <div class="file-info" id="originalInfo">
+                        <span class="file-size">大小: </span>
+                        <span class="file-dimensions">尺寸: </span>
+                    </div>
+                </div>
+
+                <!-- 压缩控制 -->
+                <div class="compression-controls">
+                    <div class="compression-info">
+                        <div class="suggestion-box">
+                            <h4>系统建议</h4>
+                            <p id="compressionSuggestion"></p>
+                        </div>
+                        <div class="estimate-box">
+                            <h4>预估大小</h4>
+                            <p id="sizeEstimate"></p>
+                        </div>
+                    </div>
+                    <div class="quality-control">
+                        <label for="quality">压缩质量</label>
+                        <input type="range" id="quality" min="0" max="100" value="80">
+                        <span id="qualityValue">80%</span>
+                    </div>
+                    <div class="format-control">
+                        <label>输出格式:</label>
+                        <select id="outputFormat">
+                            <option value="auto">自动 (保持原格式)</option>
+                            <option value="jpeg">强制 JPEG</option>
+                            <option value="png">强制 PNG</option>
+                        </select>
+                    </div>
+                    <button id="compressBtn" class="primary-button">压缩图片</button>
+                </div>
+
+                <!-- 压缩后预览 -->
+                <div class="preview-box">
+                    <h3>压缩后</h3>
+                    <div class="image-preview">
+                        <img id="compressedPreview" alt="压缩预览">
+                    </div>
+                    <div class="file-info" id="compressedInfo">
+                        <span class="file-size">大小: </span>
+                        <span class="file-dimensions">尺寸: </span>
+                    </div>
+                    <button id="downloadBtn" class="secondary-button" disabled>下载图片</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html> 
